@@ -27,6 +27,7 @@
             -webkit-tap-highlight-color: transparent;
         }
         body {
+            min-height: 100vh;
             min-height: 100dvh;
             font-family: 'Gowun Batang', 'Malgun Gothic', serif;
             background: linear-gradient(165deg, #e8f4e8 0%, #fff9e8 50%, #f0e8f4 100%);
@@ -54,14 +55,17 @@
         }
         .cards-grid {
             flex: 1;
+            min-height: 200px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+            grid-auto-rows: 1fr;
             gap: 10px;
             align-content: start;
             padding-bottom: 16px;
         }
         .card {
             aspect-ratio: 1;
+            min-height: 80px;
             perspective: 800px;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
@@ -482,21 +486,29 @@
 
         let currentSet = 0;
 
+        function makeSvgUnique(svgStr, prefix) {
+            if (!svgStr || typeof svgStr !== 'string') return '';
+            return svgStr.replace(/\bid="([^"]+)"/g, (_, id) => `id="${id}-${prefix}"`)
+                .replace(/url\(#([^)]+)\)/g, (_, id) => `url(#${id}-${prefix})`);
+        }
+
         function renderCards() {
             const grid = document.getElementById('cardsGrid');
+            if (!grid) return;
             const set = WORD_SETS[currentSet];
-            grid.innerHTML = set.map((item, i) => `
+            grid.innerHTML = set.map((item, i) => {
+                const svgHtml = typeof item.svg === 'function' ? item.svg() : '';
+                const uniqueSvg = makeSvgUnique(svgHtml, 'c' + i);
+                return `
                 <div class="card" data-index="${i}" role="button" tabindex="0">
                     <div class="card-inner">
-                        <div class="card-face card-front">
-                            ${typeof item.svg === 'function' ? item.svg() : ''}
-                        </div>
+                        <div class="card-face card-front">${uniqueSvg}</div>
                         <div class="card-face card-back">
                             <span class="card-word">${item.word}</span>
                         </div>
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
 
             grid.querySelectorAll('.card').forEach(card => {
                 card.addEventListener('click', () => {
@@ -516,19 +528,28 @@
             }
         }
 
-        document.getElementById('prevSet').addEventListener('click', () => {
-            currentSet = (currentSet - 1 + TOTAL_PAGES) % TOTAL_PAGES;
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
-            renderCards();
-        });
+        const prevBtn = document.getElementById('prevSet');
+        const nextBtn = document.getElementById('nextSet');
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentSet = (currentSet - 1 + TOTAL_PAGES) % TOTAL_PAGES;
+                document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
+                renderCards();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentSet = (currentSet + 1) % TOTAL_PAGES;
+                document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
+                renderCards();
+            });
+        }
 
-        document.getElementById('nextSet').addEventListener('click', () => {
-            currentSet = (currentSet + 1) % TOTAL_PAGES;
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderCards);
+        } else {
             renderCards();
-        });
-
-        renderCards();
+        }
     </script>
 </body>
 </html>
