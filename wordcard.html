@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>한글 단어카드 - 우리 아이 첫 한글</title>
+    <title>호연이 한글 맞추기</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Jua&display=swap" rel="stylesheet">
@@ -171,12 +171,12 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>🍃 한글 단어카드</h1>
+            <h1>🍃 호연이 한글 맞추기</h1>
         </header>
         <main class="cards-grid" id="cardsGrid"></main>
         <nav class="nav-area">
             <button class="nav-btn" id="prevSet" aria-label="이전 페이지">← 이전</button>
-            <span class="page-indicator" id="pageIndicator"><span class="current">1</span> / 20</span>
+            <span class="page-indicator" id="pageIndicator"><span class="current">1</span> / 10</span>
             <button class="nav-btn" id="nextSet" aria-label="다음 페이지">다음 →</button>
         </nav>
     </div>
@@ -374,23 +374,6 @@
             </svg>`;
         }
 
-        const ALL_WORDS = [
-            { word: '개', svg: dogSvg }, { word: '고양이', svg: catSvg }, { word: '해', svg: sunSvg }, { word: '나무', svg: treeSvg }, { word: '물', svg: waterSvg }, { word: '빵', svg: breadSvg },
-            { word: '사과', svg: appleSvg }, { word: '차', svg: carSvg }, { word: '달', svg: moonSvg }, { word: '꽃', svg: flowerSvg }, { word: '별', svg: starSvg }, { word: '바다', svg: seaSvg },
-            { word: '토끼', svg: rabbitSvg }, { word: '집', svg: houseSvg }, { word: '공', svg: ballSvg }, { word: '새', svg: birdSvg }, { word: '책', svg: bookSvg }, { word: '구름', svg: cloudSvg },
-            { word: '비행기', svg: planeSvg }, { word: '모자', svg: hatSvg }, { word: '우유', svg: milkSvg }, { word: '강아지', svg: dogSvg }, { word: '햇님', svg: sunSvg }, { word: '콩나물', svg: treeSvg },
-            { word: '바나나', svg: bananaSvg }, { word: '배', svg: pearSvg }, { word: '포도', svg: grapeSvg }, { word: '버스', svg: carSvg }, { word: '기차', svg: carSvg }, { word: '배', svg: boatSvg },
-            { word: '병아리', svg: birdSvg }, { word: '돌', svg: rockSvg }, { word: '인형', svg: dollSvg }, { word: '문', svg: houseSvg }, { word: '창문', svg: houseSvg }, { word: '비', svg: cloudSvg },
-            { word: '눈', svg: snowSvg }, { word: '당근', svg: carrotSvg }, { word: '옷', svg: hatSvg }, { word: '신발', svg: hatSvg }, { word: '귤', svg: tangerineSvg }, { word: '감', svg: persimmonSvg },
-            { word: '코끼리', svg: elephantSvg }, { word: '돼지', svg: pigSvg }, { word: '코', svg: faceSvg }, { word: '입', svg: faceSvg }, { word: '손', svg: handSvg }, { word: '발', svg: handSvg },
-            { word: '머리', svg: faceSvg }, { word: '귀', svg: faceSvg }, { word: '가방', svg: hatSvg }, { word: '우산', svg: umbrellaSvg }, { word: '호랑이', svg: catSvg }, { word: '사자', svg: catSvg },
-            { word: '하늘', svg: sunSvg }, { word: '풀', svg: treeSvg }, { word: '바닷물', svg: waterSvg }, { word: '케익', svg: cakeSvg }, { word: '딸기', svg: strawberrySvg }, { word: '수박', svg: watermelonSvg },
-            { word: '자동차', svg: carSvg }, { word: '밤', svg: moonSvg }, { word: '장미', svg: flowerSvg }, { word: '나비', svg: butterflySvg }, { word: '돌고래', svg: dolphinSvg }, { word: '땅콩', svg: peanutSvg },
-            { word: '옥수수', svg: carrotSvg }, { word: '양말', svg: hatSvg }, { word: '요리', svg: breadSvg }, { word: '엄마', svg: faceSvg }, { word: '아빠', svg: faceSvg }, { word: '아기', svg: faceSvg },
-            { word: '기린', svg: elephantSvg }, { word: '말', svg: elephantSvg }, { word: '오리', svg: birdSvg }, { word: '배', svg: boatSvg }, { word: '호박', svg: pumpkinSvg }, { word: '감자', svg: potatoSvg },
-            { word: '양', svg: pigSvg }, { word: '닭', svg: birdSvg }, { word: '곰', svg: bearSvg }, { word: '원숭이', svg: monkeySvg }, { word: '뱀', svg: snakeSvg }, { word: '물고기', svg: seaSvg },
-            { word: '나비', svg: butterflySvg }, { word: '달팽이', svg: snailSvg }, { word: '거미', svg: spiderSvg }, { word: '벌', svg: beeSvg }, { word: '풍선', svg: balloonSvg }, { word: '인형', svg: dollSvg }
-        ];
         function carrotSvg() {
             return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                 <defs><linearGradient id="carrotGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ff9800"/><stop offset="100%" stop-color="#e65100"/></linearGradient></defs>
@@ -621,23 +604,49 @@
         }
 
         const CARDS_PER_PAGE = 6;
-        const TOTAL_PAGES = 20;
-        const SVG_LIST = [dogSvg, catSvg, sunSvg, treeSvg, waterSvg, breadSvg, appleSvg, carSvg, moonSvg, flowerSvg, starSvg, seaSvg, rabbitSvg, houseSvg, ballSvg, birdSvg, bookSvg, cloudSvg, planeSvg, hatSvg, milkSvg, carrotSvg, elephantSvg, pigSvg, faceSvg, handSvg, umbrellaSvg];
-
-        function buildWordSets() {
-            const sets = [];
-            for (let p = 0; p < TOTAL_PAGES; p++) {
-                const page = [];
-                for (let i = 0; i < CARDS_PER_PAGE; i++) {
-                    const idx = (p * CARDS_PER_PAGE + i) % ALL_WORDS.length;
-                    const item = ALL_WORDS[idx];
-                    page.push({ word: item.word, svg: item.svg });
-                }
-                sets.push(page);
-            }
-            return sets;
-        }
-        const WORD_SETS = buildWordSets();
+        const TOTAL_PAGES = 10;
+        const WORD_SETS = [
+            [
+                { word: '개', svg: dogSvg }, { word: '고양이', svg: catSvg }, { word: '해', svg: sunSvg },
+                { word: '나무', svg: treeSvg }, { word: '물', svg: waterSvg }, { word: '빵', svg: breadSvg }
+            ],
+            [
+                { word: '사과', svg: appleSvg }, { word: '차', svg: carSvg }, { word: '달', svg: moonSvg },
+                { word: '꽃', svg: flowerSvg }, { word: '별', svg: starSvg }, { word: '바다', svg: seaSvg }
+            ],
+            [
+                { word: '토끼', svg: rabbitSvg }, { word: '집', svg: houseSvg }, { word: '공', svg: ballSvg },
+                { word: '새', svg: birdSvg }, { word: '책', svg: bookSvg }, { word: '구름', svg: cloudSvg }
+            ],
+            [
+                { word: '비행기', svg: planeSvg }, { word: '모자', svg: hatSvg }, { word: '우유', svg: milkSvg },
+                { word: '바나나', svg: bananaSvg }, { word: '배', svg: pearSvg }, { word: '포도', svg: grapeSvg }
+            ],
+            [
+                { word: '나비', svg: butterflySvg }, { word: '눈', svg: snowSvg }, { word: '땅콩', svg: peanutSvg },
+                { word: '뱀', svg: snakeSvg }, { word: '달팽이', svg: snailSvg }, { word: '풍선', svg: balloonSvg }
+            ],
+            [
+                { word: '수박', svg: watermelonSvg }, { word: '딸기', svg: strawberrySvg }, { word: '케이크', svg: cakeSvg },
+                { word: '돌', svg: rockSvg }, { word: '인형', svg: dollSvg }, { word: '당근', svg: carrotSvg }
+            ],
+            [
+                { word: '코끼리', svg: elephantSvg }, { word: '돼지', svg: pigSvg }, { word: '우산', svg: umbrellaSvg },
+                { word: '귤', svg: tangerineSvg }, { word: '감', svg: persimmonSvg }, { word: '호박', svg: pumpkinSvg }
+            ],
+            [
+                { word: '감자', svg: potatoSvg }, { word: '돌고래', svg: dolphinSvg }, { word: '곰', svg: bearSvg },
+                { word: '원숭이', svg: monkeySvg }, { word: '거미', svg: spiderSvg }, { word: '벌', svg: beeSvg }
+            ],
+            [
+                { word: '얼굴', svg: faceSvg }, { word: '손', svg: handSvg }, { word: '배', svg: boatSvg },
+                { word: '강아지', svg: dogSvg }, { word: '햇님', svg: sunSvg }, { word: '병아리', svg: birdSvg }
+            ],
+            [
+                { word: '장미', svg: flowerSvg }, { word: '기차', svg: carSvg }, { word: '오리', svg: birdSvg },
+                { word: '닭', svg: birdSvg }, { word: '밤', svg: moonSvg }, { word: '자동차', svg: carSvg }
+            ]
+        ];
 
         let currentSet = 0;
 
