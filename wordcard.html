@@ -181,27 +181,6 @@
         </nav>
     </div>
     <script>
-        const WORD_SETS = [
-            [
-                { word: '개', svg: dogSvg },
-                { word: '고양이', svg: catSvg },
-                { word: '해', svg: sunSvg },
-                { word: '나무', svg: treeSvg }
-            ],
-            [
-                { word: '물', svg: waterSvg },
-                { word: '빵', svg: breadSvg },
-                { word: '사과', svg: appleSvg },
-                { word: '차', svg: carSvg }
-            ],
-            [
-                { word: '달', svg: moonSvg },
-                { word: '꽃', svg: flowerSvg },
-                { word: '별', svg: starSvg },
-                { word: '바다', svg: seaSvg }
-            ]
-        ];
-
         function dogSvg() {
             return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                 <defs><linearGradient id="dogGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#e8d4b8"/><stop offset="100%" stop-color="#d4b896"/></linearGradient></defs>
@@ -528,27 +507,34 @@
             }
         }
 
-        const prevBtn = document.getElementById('prevSet');
-        const nextBtn = document.getElementById('nextSet');
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentSet = (currentSet - 1 + TOTAL_PAGES) % TOTAL_PAGES;
-                document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
+        function init() {
+            try {
+                const prevBtn = document.getElementById('prevSet');
+                const nextBtn = document.getElementById('nextSet');
+                if (prevBtn) {
+                    prevBtn.onclick = function() {
+                        currentSet = (currentSet - 1 + TOTAL_PAGES) % TOTAL_PAGES;
+                        document.querySelectorAll('.card').forEach(function(c) { c.classList.remove('flipped'); });
+                        renderCards();
+                    };
+                }
+                if (nextBtn) {
+                    nextBtn.onclick = function() {
+                        currentSet = (currentSet + 1) % TOTAL_PAGES;
+                        document.querySelectorAll('.card').forEach(function(c) { c.classList.remove('flipped'); });
+                        renderCards();
+                    };
+                }
                 renderCards();
-            });
+            } catch (err) {
+                var grid = document.getElementById('cardsGrid');
+                if (grid) grid.innerHTML = '<p style="padding:20px;color:#c00;">오류: ' + String(err.message) + '</p>';
+            }
         }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                currentSet = (currentSet + 1) % TOTAL_PAGES;
-                document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
-                renderCards();
-            });
-        }
-
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', renderCards);
+            document.addEventListener('DOMContentLoaded', init);
         } else {
-            renderCards();
+            init();
         }
     </script>
 </body>
