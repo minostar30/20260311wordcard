@@ -55,10 +55,10 @@
         .cards-grid {
             flex: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
             align-content: start;
-            padding-bottom: 20px;
+            padding-bottom: 16px;
         }
         .card {
             aspect-ratio: 1;
@@ -100,8 +100,8 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            max-width: 140px;
-            max-height: 140px;
+            max-width: 100px;
+            max-height: 100px;
         }
         .card-back {
             background: linear-gradient(145deg, #fff 0%, var(--soft-yellow) 100%);
@@ -118,11 +118,18 @@
             font-weight: 400;
             text-shadow: 0 2px 4px rgba(0,0,0,0.06);
         }
+        .nav-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px 0;
+            flex-wrap: wrap;
+        }
         .nav-btns {
             display: flex;
             gap: 12px;
-            justify-content: center;
-            padding: 12px 0;
+            align-items: center;
         }
         .nav-btn {
             font-family: 'Jua', sans-serif;
@@ -139,6 +146,18 @@
         .nav-btn:active {
             transform: scale(0.96);
         }
+        .page-indicator {
+            font-family: 'Jua', sans-serif;
+            font-size: 1.1rem;
+            color: var(--warm-brown);
+            min-width: 70px;
+            text-align: center;
+            background: rgba(255,255,255,0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            box-shadow: 0 1px 8px rgba(139, 115, 85, 0.15);
+        }
+        .page-indicator .current { font-weight: 700; color: #6b5344; }
         @media (min-width: 391px) {
             body { background: linear-gradient(165deg, #e8f4e8 0%, #fff9e8 50%, #f0e8f4 100%); }
             .container { padding: 24px; }
@@ -151,9 +170,10 @@
             <h1>🍃 한글 단어카드</h1>
         </header>
         <main class="cards-grid" id="cardsGrid"></main>
-        <nav class="nav-btns">
-            <button class="nav-btn" id="prevSet" aria-label="이전 단어 세트">← 이전</button>
-            <button class="nav-btn" id="nextSet" aria-label="다음 단어 세트">다음 →</button>
+        <nav class="nav-area">
+            <button class="nav-btn" id="prevSet" aria-label="이전 페이지">← 이전</button>
+            <span class="page-indicator" id="pageIndicator"><span class="current">1</span> / 20</span>
+            <button class="nav-btn" id="nextSet" aria-label="다음 페이지">다음 →</button>
         </nav>
     </div>
     <script>
@@ -293,6 +313,172 @@
                 <ellipse cx="90" cy="28" rx="15" ry="6" fill="#fff" opacity="0.8"/>
             </svg>`;
         }
+        function rabbitSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="rabbitGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff"/><stop offset="100%" stop-color="#e0e0e0"/></linearGradient></defs>
+                <ellipse cx="60" cy="75" rx="28" ry="20" fill="url(#rabbitGrad)"/>
+                <circle cx="60" cy="45" r="18" fill="url(#rabbitGrad)"/>
+                <ellipse cx="45" cy="30" rx="5" ry="14" fill="url(#rabbitGrad)"/>
+                <ellipse cx="75" cy="30" rx="5" ry="14" fill="url(#rabbitGrad)"/>
+                <circle cx="52" cy="42" r="3" fill="#333"/>
+                <circle cx="68" cy="42" r="3" fill="#333"/>
+                <circle cx="78" cy="58" rx="4" ry="3" fill="#333"/>
+            </svg>`;
+        }
+        function houseSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="houseGrad" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#8d6e63"/><stop offset="100%" stop-color="#a1887f"/></linearGradient></defs>
+                <path d="M60 25 L95 55 L95 95 L25 95 L25 55 Z" fill="#ffcc80"/>
+                <path d="M60 25 L25 55 L95 55 Z" fill="#ff8a65"/>
+                <rect x="50" y="65" width="20" height="30" fill="url(#houseGrad)"/>
+                <rect x="35" y="55" width="15" height="18" fill="#90caf9"/>
+                <rect x="70" y="55" width="15" height="18" fill="#90caf9"/>
+            </svg>`;
+        }
+        function ballSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="ballGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ef5350"/><stop offset="100%" stop-color="#c62828"/></linearGradient></defs>
+                <circle cx="60" cy="60" r="35" fill="url(#ballGrad)"/>
+                <path d="M35 60 Q60 35 85 60 Q60 85 35 60" stroke="#fff" stroke-width="4" fill="none" opacity="0.8"/>
+            </svg>`;
+        }
+        function birdSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="birdGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffb74d"/><stop offset="100%" stop-color="#ff9800"/></linearGradient></defs>
+                <ellipse cx="55" cy="60" rx="25" ry="18" fill="url(#birdGrad)"/>
+                <path d="M80 55 Q100 50 105 58 Q100 65 85 62" fill="url(#birdGrad)"/>
+                <ellipse cx="48" cy="55" rx="4" ry="4" fill="#333"/>
+                <path d="M65 50 Q75 45 78 52 M65 68 Q75 72 78 65" stroke="#5d4e37" stroke-width="2" fill="none"/>
+            </svg>`;
+        }
+        function bookSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#81c784"/><stop offset="100%" stop-color="#4caf50"/></linearGradient></defs>
+                <rect x="30" y="25" width="60" height="70" rx="3" fill="url(#bookGrad)"/>
+                <line x1="60" y1="25" x2="60" y2="95" stroke="#2e7d32" stroke-width="2"/>
+                <line x1="40" y1="50" x2="55" y2="50" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+                <line x1="40" y1="65" x2="55" y2="65" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+            </svg>`;
+        }
+        function cloudSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="65" rx="25" ry="15" fill="#e3f2fd"/>
+                <circle cx="60" cy="55" r="20" fill="#e3f2fd"/>
+                <circle cx="80" cy="60" r="22" fill="#e3f2fd"/>
+                <circle cx="45" cy="60" r="15" fill="#e3f2fd"/>
+            </svg>`;
+        }
+        function planeSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="planeGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#90a4ae"/><stop offset="100%" stop-color="#607d8b"/></linearGradient></defs>
+                <path d="M25 60 L95 60 L85 55 L95 60 L85 65 L95 60 L70 58 L55 45 L45 58 Z" fill="url(#planeGrad)"/>
+                <circle cx="55" cy="55" r="8" fill="#e3f2fd"/>
+            </svg>`;
+        }
+        function hatSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="hatGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff7043"/><stop offset="100%" stop-color="#e64a19"/></linearGradient></defs>
+                <ellipse cx="60" cy="50" rx="40" ry="12" fill="url(#hatGrad)"/>
+                <path d="M25 50 L25 75 L95 75 L95 50" fill="url(#hatGrad)"/>
+                <rect x="55" y="35" width="10" height="20" fill="#8d6e63"/>
+            </svg>`;
+        }
+        function milkSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <rect x="40" y="30" width="40" height="60" rx="5" fill="#fff"/>
+                <rect x="42" y="32" width="36" height="56" rx="3" fill="#e3f2fd"/>
+                <ellipse cx="60" cy="32" rx="18" ry="5" fill="#90caf9"/>
+            </svg>`;
+        }
+
+        const ALL_WORDS = [
+            { word: '개', svg: dogSvg }, { word: '고양이', svg: catSvg }, { word: '해', svg: sunSvg }, { word: '나무', svg: treeSvg }, { word: '물', svg: waterSvg }, { word: '빵', svg: breadSvg },
+            { word: '사과', svg: appleSvg }, { word: '차', svg: carSvg }, { word: '달', svg: moonSvg }, { word: '꽃', svg: flowerSvg }, { word: '별', svg: starSvg }, { word: '바다', svg: seaSvg },
+            { word: '토끼', svg: rabbitSvg }, { word: '집', svg: houseSvg }, { word: '공', svg: ballSvg }, { word: '새', svg: birdSvg }, { word: '책', svg: bookSvg }, { word: '구름', svg: cloudSvg },
+            { word: '비행기', svg: planeSvg }, { word: '모자', svg: hatSvg }, { word: '우유', svg: milkSvg }, { word: '강아지', svg: dogSvg }, { word: '햇님', svg: sunSvg }, { word: '콩나물', svg: treeSvg },
+            { word: '바나나', svg: appleSvg }, { word: '배', svg: appleSvg }, { word: '포도', svg: appleSvg }, { word: '버스', svg: carSvg }, { word: '기차', svg: carSvg }, { word: '배', svg: seaSvg },
+            { word: '병아리', svg: birdSvg }, { word: '돌', svg: ballSvg }, { word: '인형', svg: rabbitSvg }, { word: '문', svg: houseSvg }, { word: '창문', svg: houseSvg }, { word: '비', svg: cloudSvg },
+            { word: '눈', svg: cloudSvg }, { word: '당근', svg: carrotSvg }, { word: '옷', svg: hatSvg }, { word: '신발', svg: hatSvg }, { word: '귤', svg: appleSvg }, { word: '감', svg: appleSvg },
+            { word: '코끼리', svg: elephantSvg }, { word: '돼지', svg: pigSvg }, { word: '코', svg: faceSvg }, { word: '입', svg: faceSvg }, { word: '손', svg: handSvg }, { word: '발', svg: handSvg },
+            { word: '머리', svg: faceSvg }, { word: '귀', svg: faceSvg }, { word: '가방', svg: hatSvg }, { word: '우산', svg: umbrellaSvg }, { word: '호랑이', svg: catSvg }, { word: '사자', svg: catSvg },
+            { word: '하늘', svg: sunSvg }, { word: '풀', svg: treeSvg }, { word: '바닷물', svg: waterSvg }, { word: '케익', svg: breadSvg }, { word: '딸기', svg: appleSvg }, { word: '수박', svg: appleSvg },
+            { word: '자동차', svg: carSvg }, { word: '밤', svg: moonSvg }, { word: '장미', svg: flowerSvg }, { word: '나비', svg: birdSvg }, { word: '돌고래', svg: seaSvg }, { word: '땅콩', svg: ballSvg },
+            { word: '옥수수', svg: carrotSvg }, { word: '양말', svg: hatSvg }, { word: '요리', svg: breadSvg }, { word: '엄마', svg: faceSvg }, { word: '아빠', svg: faceSvg }, { word: '아기', svg: faceSvg },
+            { word: '기린', svg: elephantSvg }, { word: '말', svg: elephantSvg }, { word: '오리', svg: birdSvg }, { word: '배', svg: seaSvg }, { word: '호박', svg: breadSvg }, { word: '감자', svg: carrotSvg },
+            { word: '양', svg: pigSvg }, { word: '닭', svg: birdSvg }, { word: '곰', svg: rabbitSvg }, { word: '원숭이', svg: faceSvg }, { word: '뱀', svg: ballSvg }, { word: '물고기', svg: seaSvg },
+            { word: '나비', svg: flowerSvg }, { word: '달팽이', svg: ballSvg }, { word: '거미', svg: faceSvg }, { word: '벌', svg: birdSvg }, { word: '풍선', svg: ballSvg }, { word: '인형', svg: rabbitSvg }
+        ];
+        function carrotSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="carrotGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ff9800"/><stop offset="100%" stop-color="#e65100"/></linearGradient></defs>
+                <ellipse cx="60" cy="70" rx="15" ry="45" fill="url(#carrotGrad)"/>
+                <path d="M50 30 Q60 15 70 30" stroke="#81c784" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>`;
+        }
+        function elephantSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="elephantGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#bdbdbd"/><stop offset="100%" stop-color="#9e9e9e"/></linearGradient></defs>
+                <ellipse cx="70" cy="75" rx="35" ry="25" fill="url(#elephantGrad)"/>
+                <circle cx="55" cy="55" r="22" fill="url(#elephantGrad)"/>
+                <path d="M35 55 Q15 50 20 65 Q25 75 35 70" fill="url(#elephantGrad)"/>
+                <ellipse cx="48" cy="48" rx="4" ry="5" fill="#5a4a3a"/>
+                <ellipse cx="65" cy="50" rx="4" ry="5" fill="#5a4a3a"/>
+            </svg>`;
+        }
+        function pigSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="pigGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f8bbd9"/><stop offset="100%" stop-color="#f48fb1"/></linearGradient></defs>
+                <ellipse cx="60" cy="70" rx="35" ry="25" fill="url(#pigGrad)"/>
+                <circle cx="55" cy="50" r="20" fill="url(#pigGrad)"/>
+                <circle cx="35" cy="45" r="6" fill="url(#pigGrad)"/>
+                <ellipse cx="48" cy="48" rx="3" ry="4" fill="#5a4a3a"/>
+                <ellipse cx="62" cy="48" rx="3" ry="4" fill="#5a4a3a"/>
+                <ellipse cx="82" cy="55" rx="5" ry="4" fill="#ffcdd2"/>
+            </svg>`;
+        }
+        function faceSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="40" fill="#ffe0bd"/>
+                <ellipse cx="45" cy="55" rx="5" ry="6" fill="#5a4a3a"/>
+                <ellipse cx="75" cy="55" rx="5" ry="6" fill="#5a4a3a"/>
+                <path d="M45 75 Q60 85 75 75" stroke="#8d6e63" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>`;
+        }
+        function handSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="65" rx="25" ry="30" fill="#ffe0bd"/>
+                <ellipse cx="45" cy="40" rx="10" ry="12" fill="#ffe0bd"/>
+                <ellipse cx="60" cy="30" rx="10" ry="12" fill="#ffe0bd"/>
+                <ellipse cx="75" cy="40" rx="10" ry="12" fill="#ffe0bd"/>
+                <ellipse cx="85" cy="55" rx="8" ry="10" fill="#ffe0bd"/>
+                <ellipse cx="35" cy="55" rx="8" ry="10" fill="#ffe0bd"/>
+            </svg>`;
+        }
+        function umbrellaSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 25 Q25 45 25 70 Q60 95 95 70 Q95 45 60 25 Z" fill="#42a5f5"/>
+                <rect x="57" y="65" width="6" height="40" fill="#8d6e63"/>
+            </svg>`;
+        }
+
+        const CARDS_PER_PAGE = 6;
+        const TOTAL_PAGES = 20;
+        const SVG_LIST = [dogSvg, catSvg, sunSvg, treeSvg, waterSvg, breadSvg, appleSvg, carSvg, moonSvg, flowerSvg, starSvg, seaSvg, rabbitSvg, houseSvg, ballSvg, birdSvg, bookSvg, cloudSvg, planeSvg, hatSvg, milkSvg, carrotSvg, elephantSvg, pigSvg, faceSvg, handSvg, umbrellaSvg];
+
+        function buildWordSets() {
+            const sets = [];
+            for (let p = 0; p < TOTAL_PAGES; p++) {
+                const page = [];
+                for (let i = 0; i < CARDS_PER_PAGE; i++) {
+                    const idx = (p * CARDS_PER_PAGE + i) % ALL_WORDS.length;
+                    const item = ALL_WORDS[idx];
+                    page.push({ word: item.word, svg: item.svg });
+                }
+                sets.push(page);
+            }
+            return sets;
+        }
+        const WORD_SETS = buildWordSets();
 
         let currentSet = 0;
 
@@ -323,16 +509,21 @@
                     }
                 });
             });
+
+            const indicator = document.getElementById('pageIndicator');
+            if (indicator) {
+                indicator.innerHTML = `<span class="current">${currentSet + 1}</span> / ${TOTAL_PAGES}`;
+            }
         }
 
         document.getElementById('prevSet').addEventListener('click', () => {
-            currentSet = (currentSet - 1 + WORD_SETS.length) % WORD_SETS.length;
+            currentSet = (currentSet - 1 + TOTAL_PAGES) % TOTAL_PAGES;
             document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
             renderCards();
         });
 
         document.getElementById('nextSet').addEventListener('click', () => {
-            currentSet = (currentSet + 1) % WORD_SETS.length;
+            currentSet = (currentSet + 1) % TOTAL_PAGES;
             document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
             renderCards();
         });
