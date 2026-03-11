@@ -36,7 +36,7 @@
             padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
         .container {
-            max-width: 390px;
+            max-width: 393px;
             margin: 0 auto;
             min-height: 100dvh;
             padding: 16px;
@@ -57,9 +57,9 @@
             flex: 1;
             min-height: 200px;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-auto-rows: 1fr;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 12px;
             align-content: start;
             padding-bottom: 16px;
         }
@@ -162,7 +162,7 @@
             box-shadow: 0 1px 8px rgba(139, 115, 85, 0.15);
         }
         .page-indicator .current { font-weight: 700; color: #6b5344; }
-        @media (min-width: 391px) {
+        @media (min-width: 394px) {
             body { background: linear-gradient(165deg, #e8f4e8 0%, #fff9e8 50%, #f0e8f4 100%); }
             .container { padding: 24px; }
         }
@@ -379,17 +379,17 @@
             { word: '사과', svg: appleSvg }, { word: '차', svg: carSvg }, { word: '달', svg: moonSvg }, { word: '꽃', svg: flowerSvg }, { word: '별', svg: starSvg }, { word: '바다', svg: seaSvg },
             { word: '토끼', svg: rabbitSvg }, { word: '집', svg: houseSvg }, { word: '공', svg: ballSvg }, { word: '새', svg: birdSvg }, { word: '책', svg: bookSvg }, { word: '구름', svg: cloudSvg },
             { word: '비행기', svg: planeSvg }, { word: '모자', svg: hatSvg }, { word: '우유', svg: milkSvg }, { word: '강아지', svg: dogSvg }, { word: '햇님', svg: sunSvg }, { word: '콩나물', svg: treeSvg },
-            { word: '바나나', svg: appleSvg }, { word: '배', svg: appleSvg }, { word: '포도', svg: appleSvg }, { word: '버스', svg: carSvg }, { word: '기차', svg: carSvg }, { word: '배', svg: seaSvg },
-            { word: '병아리', svg: birdSvg }, { word: '돌', svg: ballSvg }, { word: '인형', svg: rabbitSvg }, { word: '문', svg: houseSvg }, { word: '창문', svg: houseSvg }, { word: '비', svg: cloudSvg },
-            { word: '눈', svg: cloudSvg }, { word: '당근', svg: carrotSvg }, { word: '옷', svg: hatSvg }, { word: '신발', svg: hatSvg }, { word: '귤', svg: appleSvg }, { word: '감', svg: appleSvg },
+            { word: '바나나', svg: bananaSvg }, { word: '배', svg: pearSvg }, { word: '포도', svg: grapeSvg }, { word: '버스', svg: carSvg }, { word: '기차', svg: carSvg }, { word: '배', svg: boatSvg },
+            { word: '병아리', svg: birdSvg }, { word: '돌', svg: rockSvg }, { word: '인형', svg: dollSvg }, { word: '문', svg: houseSvg }, { word: '창문', svg: houseSvg }, { word: '비', svg: cloudSvg },
+            { word: '눈', svg: snowSvg }, { word: '당근', svg: carrotSvg }, { word: '옷', svg: hatSvg }, { word: '신발', svg: hatSvg }, { word: '귤', svg: tangerineSvg }, { word: '감', svg: persimmonSvg },
             { word: '코끼리', svg: elephantSvg }, { word: '돼지', svg: pigSvg }, { word: '코', svg: faceSvg }, { word: '입', svg: faceSvg }, { word: '손', svg: handSvg }, { word: '발', svg: handSvg },
             { word: '머리', svg: faceSvg }, { word: '귀', svg: faceSvg }, { word: '가방', svg: hatSvg }, { word: '우산', svg: umbrellaSvg }, { word: '호랑이', svg: catSvg }, { word: '사자', svg: catSvg },
-            { word: '하늘', svg: sunSvg }, { word: '풀', svg: treeSvg }, { word: '바닷물', svg: waterSvg }, { word: '케익', svg: breadSvg }, { word: '딸기', svg: appleSvg }, { word: '수박', svg: appleSvg },
-            { word: '자동차', svg: carSvg }, { word: '밤', svg: moonSvg }, { word: '장미', svg: flowerSvg }, { word: '나비', svg: birdSvg }, { word: '돌고래', svg: seaSvg }, { word: '땅콩', svg: ballSvg },
+            { word: '하늘', svg: sunSvg }, { word: '풀', svg: treeSvg }, { word: '바닷물', svg: waterSvg }, { word: '케익', svg: cakeSvg }, { word: '딸기', svg: strawberrySvg }, { word: '수박', svg: watermelonSvg },
+            { word: '자동차', svg: carSvg }, { word: '밤', svg: moonSvg }, { word: '장미', svg: flowerSvg }, { word: '나비', svg: butterflySvg }, { word: '돌고래', svg: dolphinSvg }, { word: '땅콩', svg: peanutSvg },
             { word: '옥수수', svg: carrotSvg }, { word: '양말', svg: hatSvg }, { word: '요리', svg: breadSvg }, { word: '엄마', svg: faceSvg }, { word: '아빠', svg: faceSvg }, { word: '아기', svg: faceSvg },
-            { word: '기린', svg: elephantSvg }, { word: '말', svg: elephantSvg }, { word: '오리', svg: birdSvg }, { word: '배', svg: seaSvg }, { word: '호박', svg: breadSvg }, { word: '감자', svg: carrotSvg },
-            { word: '양', svg: pigSvg }, { word: '닭', svg: birdSvg }, { word: '곰', svg: rabbitSvg }, { word: '원숭이', svg: faceSvg }, { word: '뱀', svg: ballSvg }, { word: '물고기', svg: seaSvg },
-            { word: '나비', svg: flowerSvg }, { word: '달팽이', svg: ballSvg }, { word: '거미', svg: faceSvg }, { word: '벌', svg: birdSvg }, { word: '풍선', svg: ballSvg }, { word: '인형', svg: rabbitSvg }
+            { word: '기린', svg: elephantSvg }, { word: '말', svg: elephantSvg }, { word: '오리', svg: birdSvg }, { word: '배', svg: boatSvg }, { word: '호박', svg: pumpkinSvg }, { word: '감자', svg: potatoSvg },
+            { word: '양', svg: pigSvg }, { word: '닭', svg: birdSvg }, { word: '곰', svg: bearSvg }, { word: '원숭이', svg: monkeySvg }, { word: '뱀', svg: snakeSvg }, { word: '물고기', svg: seaSvg },
+            { word: '나비', svg: butterflySvg }, { word: '달팽이', svg: snailSvg }, { word: '거미', svg: spiderSvg }, { word: '벌', svg: beeSvg }, { word: '풍선', svg: balloonSvg }, { word: '인형', svg: dollSvg }
         ];
         function carrotSvg() {
             return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -441,6 +441,182 @@
             return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                 <path d="M60 25 Q25 45 25 70 Q60 95 95 70 Q95 45 60 25 Z" fill="#42a5f5"/>
                 <rect x="57" y="65" width="6" height="40" fill="#8d6e63"/>
+            </svg>`;
+        }
+        function pearSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="pearGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#c8e6c9"/><stop offset="100%" stop-color="#81c784"/></linearGradient></defs>
+                <path d="M60 30 Q35 55 45 95 Q60 100 75 95 Q85 55 60 30 Z" fill="url(#pearGrad)"/>
+                <path d="M60 25 Q62 15 65 25" stroke="#558b2f" stroke-width="3" fill="none"/>
+            </svg>`;
+        }
+        function bananaSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="bananaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fff176"/><stop offset="100%" stop-color="#ffd54f"/></linearGradient></defs>
+                <path d="M35 95 Q50 70 55 45 Q60 25 65 35 Q70 55 75 80 Q78 95 70 95 Q50 95 35 95 Z" fill="url(#bananaGrad)"/>
+            </svg>`;
+        }
+        function grapeSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="grapeGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7b1fa2"/><stop offset="100%" stop-color="#4a148c"/></linearGradient></defs>
+                <circle cx="45" cy="50" r="18" fill="url(#grapeGrad)"/><circle cx="75" cy="50" r="18" fill="url(#grapeGrad)"/>
+                <circle cx="60" cy="75" r="18" fill="url(#grapeGrad)"/><circle cx="45" cy="75" r="14" fill="url(#grapeGrad)"/>
+                <circle cx="75" cy="75" r="14" fill="url(#grapeGrad)"/><path d="M60 25 Q60 35 58 45" stroke="#558b2f" stroke-width="4" fill="none"/>
+            </svg>`;
+        }
+        function boatSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="boatGrad" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="#8d6e63"/><stop offset="100%" stop-color="#a1887f"/></linearGradient></defs>
+                <path d="M25 75 L45 60 L75 60 L95 75 L25 75 Z" fill="url(#boatGrad)"/>
+                <rect x="50" y="50" width="8" height="30" fill="#5d4e37"/>
+                <path d="M58 45 L58 35 L90 55 L58 75 Z" fill="#42a5f5"/>
+            </svg>`;
+        }
+        function butterflySvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="btflyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffeb3b"/><stop offset="100%" stop-color="#ff9800"/></linearGradient></defs>
+                <ellipse cx="60" cy="65" rx="6" ry="25" fill="#37474f"/>
+                <ellipse cx="35" cy="55" rx="20" ry="25" fill="url(#btflyGrad)" transform="rotate(-20 35 55)"/>
+                <ellipse cx="85" cy="55" rx="20" ry="25" fill="url(#btflyGrad)" transform="rotate(20 85 55)"/>
+                <circle cx="60" cy="55" r="5" fill="#5d4e37"/>
+            </svg>`;
+        }
+        function snowSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="50" r="12" fill="#e3f2fd"/><circle cx="60" cy="70" r="14" fill="#e3f2fd"/><circle cx="60" cy="92" r="10" fill="#e3f2fd"/>
+                <rect x="57" y="38" width="6" height="12" fill="#90a4ae"/><rect x="57" y="58" width="6" height="14" fill="#90a4ae"/>
+            </svg>`;
+        }
+        function peanutSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="peanutGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#d4a574"/><stop offset="100%" stop-color="#8d6e63"/></linearGradient></defs>
+                <path d="M40 60 Q30 50 40 40 Q50 35 60 40 Q70 50 80 55 Q85 65 80 75 Q70 85 60 85 Q50 85 40 75 Z" fill="url(#peanutGrad)"/>
+            </svg>`;
+        }
+        function snakeSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#81c784"/><stop offset="100%" stop-color="#4caf50"/></linearGradient></defs>
+                <path d="M25 60 Q40 55 55 60 Q70 55 85 60 Q95 58 95 62 Q85 65 70 62 Q50 68 35 62 Q25 65 25 60 Z" stroke="url(#snakeGrad)" stroke-width="12" fill="none" stroke-linecap="round"/>
+                <circle cx="35" cy="60" r="4" fill="#2e7d32"/>
+            </svg>`;
+        }
+        function snailSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="60" r="25" fill="#bdbdbd"/><circle cx="60" cy="55" r="20" fill="#e0e0e0"/>
+                <ellipse cx="75" cy="45" rx="18" ry="12" fill="#bdbdbd" transform="rotate(-30 75 45)"/>
+                <circle cx="80" cy="38" r="4" fill="#5a4a3a"/>
+            </svg>`;
+        }
+        function balloonSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="balloonGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ef5350"/><stop offset="100%" stop-color="#c62828"/></linearGradient></defs>
+                <ellipse cx="60" cy="50" rx="28" ry="35" fill="url(#balloonGrad)"/>
+                <path d="M55 85 L60 95 L65 85" fill="none" stroke="#8d6e63" stroke-width="2"/>
+            </svg>`;
+        }
+        function watermelonSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="60" rx="40" ry="35" fill="#4caf50"/>
+                <ellipse cx="60" cy="60" rx="35" ry="30" fill="#c8e6c9"/>
+                <circle cx="45" cy="55" r="4" fill="#2e7d32"/><circle cx="65" cy="50" r="4" fill="#2e7d32"/><circle cx="55" cy="70" r="4" fill="#2e7d32"/>
+            </svg>`;
+        }
+        function strawberrySvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="strawGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ef5350"/><stop offset="100%" stop-color="#c62828"/></linearGradient></defs>
+                <path d="M60 30 Q35 50 40 85 Q60 95 80 85 Q85 50 60 30 Z" fill="url(#strawGrad)"/>
+            </svg>`;
+        }
+        function cakeSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <rect x="30" y="55" width="60" height="35" rx="3" fill="#ffccbc"/>
+                <rect x="35" y="45" width="50" height="15" fill="#fff8e1"/>
+                <circle cx="50" cy="52" r="4" fill="#ffab91"/><circle cx="70" cy="52" r="4" fill="#ffab91"/>
+            </svg>`;
+        }
+        function rockSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="rockGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#bdbdbd"/><stop offset="100%" stop-color="#757575"/></linearGradient></defs>
+                <ellipse cx="60" cy="65" rx="35" ry="30" fill="url(#rockGrad)"/>
+            </svg>`;
+        }
+        function spiderSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="50" r="15" fill="#424242"/>
+                <line x1="35" y1="35" x2="50" y2="45" stroke="#424242" stroke-width="3"/>
+                <line x1="85" y1="35" x2="70" y2="45" stroke="#424242" stroke-width="3"/>
+                <line x1="30" y1="60" x2="45" y2="55" stroke="#424242" stroke-width="3"/>
+                <line x1="90" y1="60" x2="75" y2="55" stroke="#424242" stroke-width="3"/>
+            </svg>`;
+        }
+        function beeSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="60" cy="60" rx="25" ry="18" fill="#ffeb3b"/>
+                <path d="M45 55 L55 55 L65 55 L75 55" stroke="#212121" stroke-width="2"/>
+                <ellipse cx="48" cy="55" rx="4" ry="5" fill="#212121"/>
+            </svg>`;
+        }
+        function tangerineSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="tangerineGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffb74d"/><stop offset="100%" stop-color="#ff9800"/></linearGradient></defs>
+                <circle cx="60" cy="60" r="35" fill="url(#tangerineGrad)"/>
+                <path d="M60 25 Q62 15 65 25" stroke="#558b2f" stroke-width="3" fill="none"/>
+            </svg>`;
+        }
+        function persimmonSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="persimmonGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff8f00"/><stop offset="100%" stop-color="#e65100"/></linearGradient></defs>
+                <circle cx="60" cy="60" r="32" fill="url(#persimmonGrad)"/>
+            </svg>`;
+        }
+        function pumpkinSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="pumpkinGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#ffb74d"/><stop offset="100%" stop-color="#ff9800"/></linearGradient></defs>
+                <path d="M60 35 Q25 50 35 85 Q60 95 85 85 Q95 50 60 35 Z" fill="url(#pumpkinGrad)"/>
+                <rect x="55" y="25" width="10" height="15" fill="#5d4e37"/>
+            </svg>`;
+        }
+        function potatoSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="potatoGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d7ccc8"/><stop offset="100%" stop-color="#8d6e63"/></linearGradient></defs>
+                <ellipse cx="60" cy="60" rx="30" ry="35" fill="url(#potatoGrad)"/>
+            </svg>`;
+        }
+        function dolphinSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="dolphinGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#90caf9"/><stop offset="100%" stop-color="#42a5f5"/></linearGradient></defs>
+                <ellipse cx="60" cy="60" rx="35" ry="18" fill="url(#dolphinGrad)" transform="rotate(-15 60 60)"/>
+                <path d="M88 55 Q95 60 90 65" fill="url(#dolphinGrad)"/>
+                <circle cx="75" cy="55" r="4" fill="#1565c0"/>
+            </svg>`;
+        }
+        function bearSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="bearGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#8d6e63"/><stop offset="100%" stop-color="#5d4037"/></linearGradient></defs>
+                <ellipse cx="60" cy="72" rx="30" ry="22" fill="url(#bearGrad)"/>
+                <circle cx="60" cy="48" r="22" fill="url(#bearGrad)"/>
+                <circle cx="38" cy="40" r="8" fill="url(#bearGrad)"/>
+                <ellipse cx="48" cy="45" rx="4" ry="5" fill="#3e2723"/>
+                <ellipse cx="68" cy="45" rx="4" ry="5" fill="#3e2723"/>
+            </svg>`;
+        }
+        function monkeySvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="monkeyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d7ccc8"/><stop offset="100%" stop-color="#a1887f"/></linearGradient></defs>
+                <ellipse cx="60" cy="72" rx="28" ry="20" fill="url(#monkeyGrad)"/>
+                <circle cx="60" cy="45" r="20" fill="url(#monkeyGrad)"/>
+                <ellipse cx="48" cy="42" rx="5" ry="6" fill="#5d4e37"/>
+                <ellipse cx="72" cy="42" rx="5" ry="6" fill="#5d4e37"/>
+                <ellipse cx="35" cy="40" r="6" fill="url(#monkeyGrad)"/>
+                <ellipse cx="85" cy="40" r="6" fill="url(#monkeyGrad)"/>
+            </svg>`;
+        }
+        function dollSvg() {
+            return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="60" cy="40" r="18" fill="#ffccbc"/>
+                <rect x="48" y="55" width="24" height="35" rx="4" fill="#ef5350"/>
+                <ellipse cx="48" cy="45" rx="3" ry="4" fill="#5d4e37"/>
+                <ellipse cx="72" cy="45" rx="3" ry="4" fill="#5d4e37"/>
             </svg>`;
         }
 
